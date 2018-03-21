@@ -22,6 +22,7 @@ request.on('error', function(error) {
 });
 request.end();*/
 app.post('/',function(req,res){
+    if(req.body.result.metadata.intentName=='serviceNowGenerateId'){
     try
 	{
 var args = {
@@ -93,7 +94,95 @@ request.on('error', function (err) {
         displayText: "something went wrong on the request"
        
       });
+    }
+}else{
+if(req.body.result.metadata.intentName=='serviceNowGetIncidentStatus'){
+    try
+	{
+		if(req.body.result.parameters.srnumber)
+	{
+		var args = {
+   
+    headers: { "Content-Type": "application/json" }
+};
+var request=client.get("https://dev18442.service-now.com/api/now/table/incident?number="+req.body.result.parameters.incidentNumber,args,  function (data, response) {
+    // parsed response body as js object 
+    
+    // raw response 
+	console.log("Data:::"+data);
+	console.log("Response:"+response);
+	if(!data.error)
+	{
+	if(data.result[0])
+	{
+	
+	return res.json({
+    speech:"Get Status Successfull for incident "+data.result[0].number +"-"+data.result[0].short_description,
+    displayText:"Get Status Successfull for incident "+data.result[0].number +"-"+data.result[0].short_description
+  })
 	}
+	else
+	{
+	return res.json({
+    speech:"Please enter valid incident number",
+    displayText:"Please enter valid incident number"
+  })
+	}
+	}
+	else
+	{
+		return res.json({
+        speech:"something went wrong on the request",
+        displayText: "something went wrong on the request"
+       
+      });
+	}
+
+}); 
+	request.on('requestTimeout', function (req) {
+    console.log('request has expired');
+    req.abort();
+	return res.json({
+        speech:"something went wrong on the request",
+        displayText: "something went wrong on the request"
+       
+      });
+});
+ 
+request.on('responseTimeout', function (res) {
+    console.log('response has expired');
+	return res.json({
+        speech:"something went wrong on the request",
+        displayText: "something went wrong on the request"
+       
+      });
+ 
+});
+ 
+//it's usefull to handle request errors to avoid, for example, socket hang up errors on request timeouts 
+request.on('error', function (err) {
+    console.log('request error', err);
+	return res.json({
+        speech:"something went wrong on the request",
+        displayText: "something went wrong on the request"
+       
+      });
+});	
+		
+	}	
+
+	}
+catch(ex)
+	{
+	console.log(ex);	
+		return res.json({
+        speech:"something went wrong on the request",
+        displayText: "something went wrong on the request"
+       
+      });
+	}
+}
+}
 });
 app.listen(serverPort, function(){
     console.log('AI agent running on: ' + serverPort);
