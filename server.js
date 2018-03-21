@@ -99,7 +99,7 @@ request.on('error', function (err) {
 if(req.body.result.metadata.intentName=='serviceNowGetIncidentStatus'){
     try
 	{
-		if(req.body.result.parameters.srnumber)
+		if(req.body.result.parameters.incidentNumber)
 	{
 		var args = {
    
