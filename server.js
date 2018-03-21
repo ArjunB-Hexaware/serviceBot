@@ -22,39 +22,30 @@ request.on('error', function(error) {
 });
 request.end();*/
 app.post('/',function(req,res){
-    try{
-console.log(req.body.result);
+    try
+	{
 var args = {
-    data: {'incident_description':req.body.result.parameters.IncidentDescription,'assignment_group':'287ebd7da9fe198100f92cc8d1d2154e','urgency':'2','impact':'2'} ,
+    data: {'short_description':req.body.result.parameters.IncidentDescription,'assignment_group':'287ebd7da9fe198100f92cc8d1d2154e','urgency':'2','impact':'2'} ,
     headers: { "Content-Type": "application/json" }
 };
-var request=client.get("https://dev18442.service-now.com/api/now/table/incident?number="+req.body.result.parameters.srnumber,args,  function (data, response) {
+ 
+ var request=client.post("https://dev18442.service-now.com/api/now/table/incident", args, function (data, response) {
+	 
     // parsed response body as js object 
-    
+    console.log(data);
     // raw response 
-	console.log("Data:::"+data);
-	console.log("Response:"+response);
-	if(!data.error)
-	{
-	if(data.result[0])
+   if(!data.error)
 	{
 	
-	return res.json({
-    speech:"Get Status Successfull for incident "+data.result[0].number +"-"+data.result[0].incident_description,
-    displayText:"Get Status Successfull for incident "+data.result[0].number +"-"+data.result[0].incident_description
-  })
+return res.json({
+    speech:"Service request with Incident number "+data.result.number+" has been created successfully",
+    displayText:"Service request with Incident number "+data.result.number+" has been created successfully"
+               });
+			
 	}
 	else
 	{
-	return res.json({
-    speech:"Please enter valid incident number",
-    displayText:"Please enter valid incident number"
-  })
-	}
-	}
-	else
-	{
-		return res.json({
+		 return res.json({
         speech:"something went wrong on the request",
         displayText: "something went wrong on the request"
        
@@ -62,7 +53,9 @@ var request=client.get("https://dev18442.service-now.com/api/now/table/incident?
 	}
 
 }); 
-	request.on('requestTimeout', function (req) {
+	
+	
+request.on('requestTimeout', function (req) {
     console.log('request has expired');
     req.abort();
 	return res.json({
@@ -74,12 +67,11 @@ var request=client.get("https://dev18442.service-now.com/api/now/table/incident?
  
 request.on('responseTimeout', function (res) {
     console.log('response has expired');
-	return res.json({
+ return res.json({
         speech:"something went wrong on the request",
         displayText: "something went wrong on the request"
        
       });
- 
 });
  
 //it's usefull to handle request errors to avoid, for example, socket hang up errors on request timeouts 
@@ -90,17 +82,18 @@ request.on('error', function (err) {
         displayText: "something went wrong on the request"
        
       });
-});	
-
-    }
-    catch(error){
-console.log('EXCEPTION'+error);
-return res.json({
-    speech:"something went wrong on the request",
-    displayText: "something went wrong on the request"
-   
-  });
-    }
+});
+	
+	}
+	catch(ex)
+	{
+		console.log(ex);
+		return res.json({
+        speech:"something went wrong on the request",
+        displayText: "something went wrong on the request"
+       
+      });
+	}
 });
 app.listen(serverPort, function(){
     console.log('AI agent running on: ' + serverPort);
