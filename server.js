@@ -26,7 +26,7 @@ app.post('/',function(req,res){
     try
 	{
 var args = {
-    data: {'short_description':req.body.result.parameters.IncidentDescription,'assignment_group':'287ebd7da9fe198100f92cc8d1d2154e','urgency':'2','impact':'2'} ,
+    data: {'short_description':req.body.result.parameters.short_description,'assignment_group':'287ebd7da9fe198100f92cc8d1d2154e','urgency':'2','impact':'2'} ,
     headers: { "Content-Type": "application/json" }
 };
  
