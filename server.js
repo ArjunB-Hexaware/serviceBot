@@ -4,6 +4,7 @@ var bodyParser= require('body-parser');
 var serverPort=process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
+console.log("inside node");
 /*
 var apiai= require('apiai');
 var appToken=require('f5997636f22e42d88023dc564bed30d5');
