@@ -4,6 +4,7 @@ var bodyParser= require('body-parser');
 var serverPort=process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
+/*
 var apiai= require('apiai');
 var appToken=require('02a17470d88041c999f781053ec74d70');
 var request = appToken.textRequest('Hi', {
@@ -15,7 +16,7 @@ request.on('response', function(response) {
  
 request.on('error', function(error) {
     console.log(error);
-});
+});*/
 request.end();
 app.post('/',function(req,res){
 console.log(req.body.result);
