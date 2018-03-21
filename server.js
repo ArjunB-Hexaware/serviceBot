@@ -23,10 +23,7 @@ request.on('error', function(error) {
 request.end();*/
 app.post('/',function(req,res){
     if(req.body.result.metadata.intentName=='serviceNowGenerateId'){
-        res.json({
-            speech:"Service request with Incident number "+req.body.result.parameters.IncidentDescription+" has been created successfully",
-            displayText:"Service request with Incident number "+req.body.result.parameters.IncidentDescription+" has been created successfully"
-                       });
+
     try
 	{
 var args = {
