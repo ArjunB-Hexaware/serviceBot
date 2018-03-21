@@ -16,8 +16,8 @@ request.on('response', function(response) {
  
 request.on('error', function(error) {
     console.log(error);
-});*/
-request.end();
+});
+request.end();*/
 app.post('/',function(req,res){
 console.log(req.body.result);
 });
