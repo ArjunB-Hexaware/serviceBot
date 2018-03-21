@@ -23,6 +23,10 @@ request.on('error', function(error) {
 request.end();*/
 app.post('/',function(req,res){
     if(req.body.result.metadata.intentName=='serviceNowGenerateId'){
+        res.json({
+            speech:"Service request with Incident number "+req.body.result.parameters.IncidentDescription+" has been created successfully",
+            displayText:"Service request with Incident number "+req.body.result.parameters.IncidentDescription+" has been created successfully"
+                       });
     try
 	{
 var args = {
@@ -109,7 +113,7 @@ var request=client.get("https://dev18442.service-now.com/api/now/table/incident?
     // parsed response body as js object 
     
     // raw response 
-	console.log("Data:::"+data);
+	console.log("Data:::"+data.result[0]);
 	console.log("Response:"+response);
 	if(!data.error)
 	{
