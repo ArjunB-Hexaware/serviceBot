@@ -25,7 +25,7 @@ app.post('/',function(req,res){
     try{
 console.log(req.body.result);
 var args = {
-    data: {'incident_description':req.body.result.parameters.shortdesc,'assignment_group':'287ebd7da9fe198100f92cc8d1d2154e','urgency':'2','impact':'2'} ,
+    data: {'incident_description':req.body.result.parameters.IncidentDescription,'assignment_group':'287ebd7da9fe198100f92cc8d1d2154e','urgency':'2','impact':'2'} ,
     headers: { "Content-Type": "application/json" }
 };
 var request=client.get("https://dev18442.service-now.com/api/now/table/incident?number="+req.body.result.parameters.srnumber,args,  function (data, response) {
