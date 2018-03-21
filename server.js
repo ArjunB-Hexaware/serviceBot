@@ -4,8 +4,6 @@ var bodyParser= require('body-parser');
 var serverPort=process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
-console.log("inside node");
-/*
 var apiai= require('apiai');
 var appToken=require('f5997636f22e42d88023dc564bed30d5');
 var request = appToken.textRequest('Hi', {
@@ -18,9 +16,9 @@ request.on('response', function(response) {
 request.on('error', function(error) {
     console.log(error);
 });
-request.end();*/
+request.end();
 app.post('/',function(req,res){
-console.log("Im inside my agent");
+console.log(req.body.result);
 });
 app.listen(serverPort, function(){
     console.log('AI agent running on: ' + serverPort);
