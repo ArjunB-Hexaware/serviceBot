@@ -18,10 +18,10 @@ request.on('response', function(response) {
 request.on('error', function(error) {
     console.log(error);
 });
-request.end();
+request.end();*/
 app.post('/',function(req,res){
-console.log(req.body.result);
-});*/
+console.log("Im inside my agent");
+});
 app.listen(serverPort, function(){
     console.log('AI agent running on: ' + serverPort);
 });
