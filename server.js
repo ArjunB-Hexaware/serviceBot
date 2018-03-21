@@ -5,7 +5,7 @@ var serverPort=process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 var apiai= require('apiai');
-var appToken=require('f5997636f22e42d88023dc564bed30d5');
+var appToken=require('02a17470d88041c999f781053ec74d70');
 var request = appToken.textRequest('Hi', {
     sessionId: 'my'
 });
