@@ -1,7 +1,7 @@
 var express=require('express');
 var app= express();
 var bodyParser= require('body-parser');
-var serverPort=3000;
+var serverPort=process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 /*
