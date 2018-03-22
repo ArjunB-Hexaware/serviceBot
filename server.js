@@ -189,6 +189,41 @@ catch(ex)
             }
           ]
           });
+    }else{
+        if(req.body.result.metadata.intentName =='serviceNowGetDetails'){
+            if(req.body.result.parameters.empid.length>3 && req.body.result.parameters.empid.length<7){
+                res.json({
+                    "messages": [
+                        {
+                          "buttons": [
+                            {
+                              "postback": "",
+                              "text": "Gadget Issue"
+                            },
+                            {
+                                "postback": "",
+                                "text": "Server Down"
+                              },
+                              {
+                                "postback": "",
+                                "text": "Website Access"
+                              }
+                          ],
+                          "imageUrl": "http://allvectorlogo.com/img/2016/04/servicenow-logo.png",
+                          "platform": "facebook",
+                          "subtitle": "",
+                          "title": "Select the type of incident",
+                          "type": 1
+                        }
+                      ]
+                })
+            }else{
+               return res.json({
+                speech:"The ID you have entered is invalid. Its size must be from 4-6 digits only",
+                displayText: "The ID you have entered is invalid. Its size must be from 4-6 digits only"
+                })
+            }
+        }
     }
 }
 }
