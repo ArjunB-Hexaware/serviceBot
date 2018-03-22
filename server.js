@@ -219,8 +219,17 @@ catch(ex)
                 })
             }else{
                return res.json({
-                speech:"The ID you have entered is invalid. Its size must be from 4-6 digits only",
-                displayText: "The ID you have entered is invalid. Its size must be from 4-6 digits only"
+                result:[{
+                    "action": "get_employee_id",
+                    "actionIncomplete": true,
+                    "parameters": {
+                      "empid": ""
+                    }
+                }]
+                ,messages:[{
+                speech:"The Employeeid you have entered is invalid. An employee ID must contain 4-6 numbers only",
+                displayText: "The Employeeid you have entered is invalid. An employee ID must contain 4-6 numbers only"
+                }]
                 })
             }
         }
