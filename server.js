@@ -7,20 +7,7 @@ var client = new Client(options_auth);
 var serverPort=process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
-/*
-var apiai= require('apiai');
-var appToken=require('02a17470d88041c999f781053ec74d70');
-var request = appToken.textRequest('Hi', {
-    sessionId: 'my'
-});
-request.on('response', function(response) {
-    console.log(response);
-});
- 
-request.on('error', function(error) {
-    console.log(error);
-});
-request.end();*/
+
 app.post('/',function(req,res){
     if(req.body.result.metadata.intentName=='serviceNowGenerateId'){
 
@@ -118,8 +105,8 @@ var request=client.get("https://dev18442.service-now.com/api/now/table/incident?
 	{
 	
 	return res.json({
-    speech:"Get Status Successfull for incident "+data.result[0].number +"-"+data.result[0].short_description,
-    displayText:"Get Status Successfull for incident "+data.result[0].number +"-"+data.result[0].short_description
+    speech:" Incident Number "+data.result[0].number +"-<br> Incident description"+data.result[0].short_description,
+    displayText:"Incident Number "+data.result[0].number +"-<br> Incident description"+data.result[0].short_description
   })
 	}
 	else
