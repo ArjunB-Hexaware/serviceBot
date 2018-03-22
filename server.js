@@ -229,7 +229,7 @@ catch(ex)
                                 },
                                 {
                                   "postback": "",
-                                  "text": "Website Access"
+                                  "text": "Other queries"
                                 }
                             ],
                             "imageUrl": "http://www.peoplefirsthrsolutions.com/files/5814/3101/7655/hr-support.jpg",
