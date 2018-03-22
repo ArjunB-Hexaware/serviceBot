@@ -14,7 +14,7 @@ app.post('/',function(req,res){
 console.log("Incident priority"+req.body.result.parameters.IncidentPriority);
     try
 	{
-if(req.body.result.parameters.IncidentPriority == null || !req.body.result.parameters.IncidentPriority || req.body.result.parameters.IncidentPriority == ""){
+if(req.body.result.parameters.IncidentPriority == null || !req.body.result.parameters.IncidentPriority || req.body.result.parameters.IncidentPriority == "Incident priority"){
 return res.json({
         "platform": "facebook",
         "replies": [
