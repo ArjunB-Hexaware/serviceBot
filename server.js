@@ -14,10 +14,10 @@ app.post('/',function(req,res){
 
     try
 	{
-
+console.log("describe"+req.body.result.contexts[0].parameters.IncidentDescription);
 
 var args = {
-    data: {'short_description':req.body.result.contexts[0].IncidentDescription,'assignment_group':'287ebd7da9fe198100f92cc8d1d2154e','urgency':'2','impact':'2'} ,
+    data: {'short_description':req.body.result.contexts[0].parameters.IncidentDescription,'assignment_group':'287ebd7da9fe198100f92cc8d1d2154e','urgency':'2','impact':'2'} ,
     headers: { "Content-Type": "application/json" }
 };
  
