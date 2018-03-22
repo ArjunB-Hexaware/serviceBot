@@ -219,17 +219,9 @@ catch(ex)
                 })
             }else{
                return res.json({
-                result:[{
-                    "action": "get_employee_id",
-                    "actionIncomplete": true,
-                    "parameters": {
-                      "empid": ""
-                    }
-                }]
-                ,messages:[{
-                speech:"The Employeeid you have entered is invalid. An employee ID must contain 4-6 numbers only",
-                displayText: "The Employeeid you have entered is invalid. An employee ID must contain 4-6 numbers only"
-                }]
+                speech:"Please enter valid employee Id",
+                displayText: "Please enter valid employee Id"
+             
                 })
             }
         }
