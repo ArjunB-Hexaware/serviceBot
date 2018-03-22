@@ -191,6 +191,9 @@ catch(ex)
           });
     }else{
         if(req.body.result.metadata.intentName =='serviceNowGetDetails'){
+            console.log("servicenowgetdetails");
+            console.log(JSON.stringify(req.body.result.parameters));
+            console.log(req.body.result.parameters.empid);
             if(req.body.result.parameters.empid.length>3 && req.body.result.parameters.empid.length<7){
                 res.json({
                     "messages": [
