@@ -106,8 +106,8 @@ var request=client.get("https://dev18442.service-now.com/api/now/table/incident?
 	{
 	
 	return res.json({
-    speech:" Incident Number "+data.result[0].number +"- Incident description : "+data.result[0].short_description+" - Created on : "+data.result[0].opened_at,
-    displayText:"Incident Number "+data.result[0].number +"- Incident description : "+data.result[0].short_description+" - Created on : "+data.result[0].opened_at
+    speech:" Incident Number "+data.result[0].number +"- Incident description : "+data.result[0].short_description+" - Created on : "+getProperDateFormat(data.result[0].opened_at),
+    displayText:"Incident Number "+data.result[0].number +"- Incident description : "+data.result[0].short_description+" - Created on : "+getProperDateFormat(data.result[0].opened_at)
   })
 	}
 	else
@@ -173,6 +173,13 @@ catch(ex)
 }
 }
 });
+
+var getProperDateFormat=function(dateValue){
+dateValue=dateValue.indexOf(0,10);
+dateValue=dateValue.split("-");
+return dateValue[2]+"/"+dateValue[1]+"/"+dateValue[0];
+
+};
 app.listen(serverPort, function(){
     console.log('AI agent running on: ' + serverPort);
 });
