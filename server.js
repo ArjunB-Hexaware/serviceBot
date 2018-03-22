@@ -212,7 +212,7 @@ catch(ex)
                                 "text": "Website Access"
                               }
                           ],
-                          "imageUrl": "http://allvectorlogo.com/img/2016/04/servicenow-logo.png",
+                          "imageUrl": "https://envecon.com/wp-content/uploads/2016/09/Application_Support-1030x391.png",
                           "platform": "facebook",
                           "subtitle": "Select an incident type",
                           "title": "Application Support",
@@ -232,7 +232,7 @@ catch(ex)
                                   "text": "Website Access"
                                 }
                             ],
-                            "imageUrl": "http://allvectorlogo.com/img/2016/04/servicenow-logo.png",
+                            "imageUrl": "http://www.peoplefirsthrsolutions.com/files/5814/3101/7655/hr-support.jpg",
                             "platform": "facebook",
                             "subtitle": "Select an incident type",
                             "title": "Human Resource",
@@ -252,7 +252,7 @@ catch(ex)
                                   "text": "Expense claims"
                                 }
                             ],
-                            "imageUrl": "http://allvectorlogo.com/img/2016/04/servicenow-logo.png",
+                            "imageUrl": "http://www.perlavision.cu/wp-content/uploads/2015/12/pago-impuestos-tributos-cuba-300x200.jpg",
                             "platform": "facebook",
                             "subtitle": "Select an incident type",
                             "title": "Finance",
