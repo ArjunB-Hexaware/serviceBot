@@ -10,27 +10,11 @@ app.use(bodyParser.json());
 
 app.post('/',function(req,res){
     /* Creating a service request */
-    if(req.body.result.metadata.intentName=='serviceNowGenerateId'){ 
-console.log("Incident priority"+req.body.result.parameters.IncidentPriority);
+    if(req.body.result.metadata.intentName=='ServiceNowStoreData'){ 
+
     try
 	{
-if(req.body.result.parameters.IncidentPriority == null || !req.body.result.parameters.IncidentPriority || req.body.result.parameters.IncidentPriority == "Incident priority"){
-    console.log("Incident priority check condition");
-return res.json({
-    "messages": [
-        {
-          "platform": "facebook",
-          "replies": [
-            "High",
-            "Medium",
-            "Low"
-          ],
-          "title": "Please state your priority",
-          "type": 2
-        }
-      ]
-      });
-}else
+
 
 var args = {
     data: {'short_description':req.body.result.parameters.IncidentDescription,'assignment_group':'287ebd7da9fe198100f92cc8d1d2154e','urgency':'2','impact':'2'} ,
@@ -188,6 +172,24 @@ catch(ex)
        
       });
 	}
+}else{
+    if(req.body.result.metadata.intentName=='serviceNowGenerateId'){
+        console.log("Incident priority check condition");
+    return res.json({
+        "messages": [
+            {
+              "platform": "facebook",
+              "replies": [
+                "High",
+                "Medium",
+                "Low"
+              ],
+              "title": "Please state your priority",
+              "type": 2
+            }
+          ]
+          });
+    }
 }
 }
 });
