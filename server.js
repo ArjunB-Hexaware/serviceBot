@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.post('/',function(req,res){
     /* Creating a service request */
     if(req.body.result.metadata.intentName=='serviceNowGenerateId'){ 
-
+console("Incident priority"+req.body.result.parameters.IncidentPriority);
     try
 	{
 if(req.body.result.parameters.IncidentPriority == null || !req.body.result.parameters.IncidentPriority || req.body.result.parameters.IncidentPriority == ""){
