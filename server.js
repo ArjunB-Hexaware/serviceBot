@@ -14,7 +14,7 @@ app.post('/',function(req,res){
 
     try
 	{
-if(req.body.result.parameters.IncidentPriority == null || !req.body.result.parameters.IncidentPriority){
+if(req.body.result.parameters.IncidentPriority == null || !req.body.result.parameters.IncidentPriority || req.body.result.parameters.IncidentPriority == ""){
 return res.json({
         "platform": "facebook",
         "replies": [
