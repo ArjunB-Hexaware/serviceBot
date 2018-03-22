@@ -175,7 +175,7 @@ catch(ex)
 });
 
 var getProperDateFormat=function(dateValue){
-dateValue=dateValue.indexOf(0,10);
+dateValue=dateValue.substring(0,10);
 dateValue=dateValue.split("-");
 return dateValue[2]+"/"+dateValue[1]+"/"+dateValue[0];
 
