@@ -210,22 +210,54 @@ catch(ex)
                               {
                                 "postback": "",
                                 "text": "Website Access"
-                              },
-                              {
-                                "postback": "",
-                                "text": "Test Access"
-                              },
-                              {
-                                "postback": "",
-                                "text": "Test2 Access"
                               }
                           ],
                           "imageUrl": "http://allvectorlogo.com/img/2016/04/servicenow-logo.png",
                           "platform": "facebook",
-                          "subtitle": "",
-                          "title": "Select the type of incident",
+                          "subtitle": "Select an incident type",
+                          "title": "Application Support",
                           "type": 1
-                        }
+                        },  {
+                            "buttons": [
+                              {
+                                "postback": "",
+                                "text": "Food coupons"
+                              },
+                              {
+                                  "postback": "",
+                                  "text": "Group mediclaim insurance"
+                                },
+                                {
+                                  "postback": "",
+                                  "text": "Website Access"
+                                }
+                            ],
+                            "imageUrl": "http://allvectorlogo.com/img/2016/04/servicenow-logo.png",
+                            "platform": "facebook",
+                            "subtitle": "Select an incident type",
+                            "title": "Human Resource",
+                            "type": 1
+                          }, {
+                            "buttons": [
+                              {
+                                "postback": "",
+                                "text": "Payroll"
+                              },
+                              {
+                                  "postback": "",
+                                  "text": "Travel and expenses"
+                                },
+                                {
+                                  "postback": "",
+                                  "text": "Expense claims"
+                                }
+                            ],
+                            "imageUrl": "http://allvectorlogo.com/img/2016/04/servicenow-logo.png",
+                            "platform": "facebook",
+                            "subtitle": "Select an incident type",
+                            "title": "Finance",
+                            "type": 1
+                          }
                       ]
                 })
             }else{
