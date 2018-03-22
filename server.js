@@ -106,8 +106,8 @@ var request=client.get("https://dev18442.service-now.com/api/now/table/incident?
 	{
 	
 	return res.json({
-    speech:" Incident Number "+data.result[0].number +"- Incident description : "+data.result[0].short_description+" - Created on : "+data.result[0].opened,
-    displayText:"Incident Number "+data.result[0].number +"- Incident description : "+data.result[0].short_description+" - Created on : "+data.result[0].opened
+    speech:" Incident Number "+data.result[0].number +"- Incident description : "+data.result[0].short_description+" - Created on : "+JSON.stringify(data.result[0]),
+    displayText:"Incident Number "+data.result[0].number +"- Incident description : "+data.result[0].short_description+" - Created on : "+JSON.stringify(data.result[0])
   })
 	}
 	else
