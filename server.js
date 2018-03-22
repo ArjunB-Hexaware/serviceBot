@@ -15,6 +15,7 @@ console.log("Incident priority"+req.body.result.parameters.IncidentPriority);
     try
 	{
 if(req.body.result.parameters.IncidentPriority == null || !req.body.result.parameters.IncidentPriority || req.body.result.parameters.IncidentPriority == "Incident priority"){
+    console.log("Incident priority check condition");
 return res.json({
         "platform": "facebook",
         "replies": [
