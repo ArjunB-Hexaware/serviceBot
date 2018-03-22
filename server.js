@@ -9,7 +9,8 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
 app.post('/',function(req,res){
-    if(req.body.result.metadata.intentName=='serviceNowGenerateId'){
+    /* Creating a service request */
+    if(req.body.result.metadata.intentName=='serviceNowGenerateId'){ 
 
     try
 	{
@@ -27,8 +28,8 @@ var args = {
 	{
 	
 return res.json({
-    speech:"Service request with Incident number "+data.result.number+" has been created successfully",
-    displayText:"Service request with Incident number "+data.result.number+" has been created successfully"
+    speech:"Your service now request created successfully. Your Incident number is :  "+data.result.number,
+    displayText:"Your service now request created successfully. Your Incident number is :  "+data.result.number
                });
 			
 	}
@@ -105,8 +106,8 @@ var request=client.get("https://dev18442.service-now.com/api/now/table/incident?
 	{
 	
 	return res.json({
-    speech:" Incident Number "+data.result[0].number +"-<br> Incident description"+data.result[0].short_description,
-    displayText:"Incident Number "+data.result[0].number +"-<br> Incident description"+data.result[0].short_description
+    speech:" Incident Number "+data.result[0].number +"- Incident description : "+data.result[0].short_description+" - Created on : "+data.result[0].opened,
+    displayText:"Incident Number "+data.result[0].number +"- Incident description : "+data.result[0].short_description+" - Created on : "+data.result[0].opened
   })
 	}
 	else
