@@ -14,6 +14,19 @@ app.post('/',function(req,res){
 
     try
 	{
+if(req.body.result.parameters.IncidentPriority == null || !req.body.result.parameters.IncidentPriority){
+return res.json({
+        "platform": "facebook",
+        "replies": [
+          "High",
+          "Medium",
+          "Low"
+        ],
+        "title": "Please state your priority",
+        "type": 2
+      });
+}else
+
 var args = {
     data: {'short_description':req.body.result.parameters.IncidentDescription,'assignment_group':'287ebd7da9fe198100f92cc8d1d2154e','urgency':'2','impact':'2'} ,
     headers: { "Content-Type": "application/json" }
