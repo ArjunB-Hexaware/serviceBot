@@ -40,10 +40,10 @@ return res.json({
     "buttons": [
       {
         "postback": "",
-        "text": "Incident status "+data.result.number
+        "text":data.result.number+" status"
       },{
         "postback": "",
-        "text": "Create another incident"
+        "text": "Create new incident"
       },{
         "postback": "",
         "text": "Incident status "
