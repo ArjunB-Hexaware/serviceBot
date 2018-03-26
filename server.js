@@ -300,7 +300,11 @@ catch(ex)
                             "subtitle": "Select an incident type",
                             "title": "Finance",
                             "type": 1
-                          }
+                          },
+                      {
+                         speech:"Enter incident type",
+                displayText: "Enter incident type"
+                      }
                       ]
                 })
             }else{
