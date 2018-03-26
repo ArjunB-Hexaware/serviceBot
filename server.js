@@ -139,6 +139,7 @@ if(req.body.result.metadata.intentName=='serviceNowGetIncidentStatus'){
    
     headers: { "Content-Type": "application/json" }
 };
+      console.log("Incident number"+req.body.result.parameters.incidentNumber);
 var request=client.get("https://dev18442.service-now.com/api/now/table/incident?number="+req.body.result.parameters.incidentNumber,args,  function (data, response) {
     // parsed response body as js object 
     
