@@ -128,7 +128,7 @@ if(req.body.result.metadata.intentName=='serviceNowGetIncidentStatus'){
       }else{
          incidentNumber=req.body.result.parameters.incidentNumber;
         incidentNumber=incidentNumber.substring(3,req.body.result.parameters.incidentNumber.length);
-      if(isNan(incidentNumber) == true){
+      if(Number.isNaN(incidentNumber) == true){
           return res.json({
       speech:"Please enter a valid incident number",
         displayText:"Please enter a valid incident number"
