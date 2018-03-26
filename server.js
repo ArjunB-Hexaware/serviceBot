@@ -8,6 +8,8 @@ var serverPort=process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
+
+
 app.post('/',function(req,res){
     /* Creating a service request */
     if(req.body.result.metadata.intentName=='ServiceNowStoreData'){ 
@@ -116,6 +118,21 @@ if(req.body.result.metadata.intentName=='serviceNowGetIncidentStatus'){
 	{
 		if(req.body.result.parameters.incidentNumber)
 	{
+      var incidentNumber=req.body.result.parameters.incidentNumber.substring(0,3);
+      if(incidentNumber.toLowerCase() != "inc" ){
+      return res.json({
+      speech:"Please enter a valid incident number",
+        displayText:"Please enter a valid incident number"
+      })
+      }else{
+        incidentNumber=req.body.result.parameters.incidentNumber.substring(3,req.body.result.parameters.incidentNumber.length);
+      if(isNan(incidentNumber) == true){
+          return res.json({
+      speech:"Please enter a valid incident number",
+        displayText:"Please enter a valid incident number"
+      })
+      }
+      }
 		var args = {
    
     headers: { "Content-Type": "application/json" }
@@ -124,8 +141,7 @@ var request=client.get("https://dev18442.service-now.com/api/now/table/incident?
     // parsed response body as js object 
     
     // raw response 
-	console.log("Data:::"+data.result[0]);
-	console.log("Response:"+response);
+
 	if(!data.error)
 	{
 	if(data.result[0])
@@ -139,8 +155,8 @@ var request=client.get("https://dev18442.service-now.com/api/now/table/incident?
 	else
 	{
 	return res.json({
-    speech:"Please enter valid incident number",
-    displayText:"Please enter valid incident number"
+    speech:"Incident number does not exist",
+    displayText:"Incident number does not exist"
   })
 	}
 	}
