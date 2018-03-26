@@ -97,20 +97,43 @@ if(req.body.result.metadata.intentName=='serviceNowGetIncidentStatus'){
     headers: { "Content-Type": "application/json" }
 };
 var request=client.get("https://dev18442.service-now.com/api/now/table/incident?number="+req.body.result.parameters.incidentNumber,args,  function (data, response) {
-    // parsed response body as js object 
-    
-    // raw response 
-	console.log("Data:::"+data.result[0]);
-	console.log("Response:"+response);
+
 	if(!data.error)
 	{
 	if(data.result[0])
 	{
-	
+	/*
 	return res.json({
     speech:" Incident Number : "+data.result[0].number +"- Incident description : "+data.result[0].short_description+" - Created on : "+getProperDateFormat(data.result[0].opened_at),
     displayText:"Incident Number : "+data.result[0].number +"- Incident description : "+data.result[0].short_description+" - Created on : "+getProperDateFormat(data.result[0].opened_at)
-  })
+  })*/
+
+return res.json({
+"messages": [
+  {
+    "buttons": [
+      {
+        "postback": "",
+        "text": "Incident status "+data.result[0].number
+      },{
+ "postback": "",
+        "text": "Create another Incident"
+},{
+ "postback": "",
+        "text": "Incident status"
+}
+    ],
+    "imageUrl": "http://allvectorlogo.com/img/2016/04/servicenow-logo.png",
+    "platform": "facebook",
+    "subtitle": "Would you like to :",
+    "title": "Incident Number : "+data.result[0].number +"- Incident description : "+data.result[0].short_description+" - Created on : "+getProperDateFormat(data.result[0].opened_at)",
+    "type": 1
+  }
+]
+
+})
+
+
 	}
 	else
 	{
