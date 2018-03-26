@@ -159,7 +159,7 @@ var request=client.get("https://dev18442.service-now.com/api/now/table/incident?
 	{
 	return res.json({
     speech:"Incident number does not exist. Please enter another incident number",
-    displayText:"Incident number does not exist. Please enter another incident number"
+    displayText:"Incident number does not exist.Please enter another incident number"
   })
 	}
 	}
@@ -239,42 +239,69 @@ catch(ex)
             console.log(req.body.result.parameters.empid);
             if(req.body.result.parameters.empid.length>3 && req.body.result.parameters.empid.length<7){
                 res.json({
-                   "messages": [
-  {
-    "items": [
-      {
-        "description": "Option One Description",
-        "image": {
-          "url": "http://imageOneUrl.com"
-        },
-        "optionInfo": {
-          "key": "itemOne",
-          "synonyms": [
-            "thing one",
-            "object one"
-          ]
-        },
-        "title": "Option One Title"
-      },
-      {
-        "description": "Option Two Description",
-        "image": {
-          "url": "http://imageTwoUrl.com"
-        },
-        "optionInfo": {
-          "key": "itemTwo",
-          "synonyms": [
-            "thing two",
-            "object two"
-          ]
-        },
-        "title": "Option Two Title"
-      }
-    ],
-    "platform": "google",
-    "type": "carousel_card"
-  }
-]
+                    "messages": [
+                        {
+                          "buttons": [
+                            {
+                              "postback": "",
+                              "text": "Gadget Issue"
+                            },
+                            {
+                                "postback": "",
+                                "text": "Server Down"
+                              },
+                              {
+                                "postback": "",
+                                "text": "Website Access"
+                              }
+                          ],
+                          "imageUrl": "https://envecon.com/wp-content/uploads/2016/09/Application_Support-1030x391.png",
+                          "platform": "facebook",
+                          "subtitle": "Select an incident type",
+                          "title": "Application Support",
+                          "type": 1
+                        },  {
+                            "buttons": [
+                              {
+                                "postback": "",
+                                "text": "Food coupons"
+                              },
+                              {
+                                  "postback": "",
+                                  "text": "Group mediclaim insurance"
+                                },
+                                {
+                                  "postback": "",
+                                  "text": "Other queries"
+                                }
+                            ],
+                            "imageUrl": "http://www.peoplefirsthrsolutions.com/files/5814/3101/7655/hr-support.jpg",
+                            "platform": "facebook",
+                            "subtitle": "Select an incident type",
+                            "title": "Human Resource",
+                            "type": 1
+                          }, {
+                            "buttons": [
+                              {
+                                "postback": "",
+                                "text": "Payroll"
+                              },
+                              {
+                                  "postback": "",
+                                  "text": "Travel and expenses"
+                                },
+                                {
+                                  "postback": "",
+                                  "text": "Expense claims"
+                                }
+                            ],
+                            "imageUrl": "http://www.perlavision.cu/wp-content/uploads/2015/12/pago-impuestos-tributos-cuba-300x200.jpg",
+                            "platform": "facebook",
+                            "subtitle": "Select an incident type",
+                            "title": "Finance",
+                            "type": 1
+                          }
+                      ]
                 })
             }else{
                return res.json({
