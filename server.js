@@ -52,7 +52,7 @@ return res.json({
     "imageUrl": "http://allvectorlogo.com/img/2016/04/servicenow-logo.png",
     "platform": "facebook",
     "subtitle": "Choose any one of the following to continue",
-    "title": "Your service now request created successfully. Your Incident number is :  "+data.result.number,
+    "title": "Your request created successfully.Incident number is :  "+data.result.number,
     "type": 1
   }
 ]
