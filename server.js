@@ -122,8 +122,8 @@ if(req.body.result.metadata.intentName=='serviceNowGetIncidentStatus'){
       incidentNumber=incidentNumber.substring(0,3);
       if(incidentNumber.toLowerCase() != "inc" ){
       return res.json({
-      speech:"Please enter a valid incident number",
-        displayText:"Please enter a valid incident number"
+      speech:"Please enter a valid incident number.",
+        displayText:"Please enter a valid incident number."
       })
       }else{
          incidentNumber=req.body.result.parameters.incidentNumber;
@@ -158,8 +158,8 @@ var request=client.get("https://dev18442.service-now.com/api/now/table/incident?
 	else
 	{
 	return res.json({
-    speech:"Incident number does not exist",
-    displayText:"Incident number does not exist"
+    speech:"Incident number does not exist.Please enter another incident number",
+    displayText:"Incident number does not exist.Please enter another incident number"
   })
 	}
 	}
