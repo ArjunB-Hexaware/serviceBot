@@ -28,11 +28,35 @@ var args = {
     // raw response 
    if(!data.error)
 	{
-	
+	/*
 return res.json({
     speech:"Your service now request created successfully. Your Incident number is :  "+data.result.number,
     displayText:"Your service now request created successfully. Your Incident number is :  "+data.result.number
-               });
+               });*/
+      
+      return res.json({
+      "messages": [
+  {
+    "buttons": [
+      {
+        "postback": "",
+        "text": "Incident status "+data.result.number
+      },{
+        "postback": "",
+        "text": "Create another incident"
+      },{
+        "postback": "",
+        "text": "Incident status "
+      }
+    ],
+    "imageUrl": "http://allvectorlogo.com/img/2016/04/servicenow-logo.png",
+    "platform": "facebook",
+    "subtitle": "Choose any one of the following to continue",
+    "title": "Your service now request created successfully. Your Incident number is :  "+data.result.number,
+    "type": 1
+  }
+]
+      })
 			
 	}
 	else
