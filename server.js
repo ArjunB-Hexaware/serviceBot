@@ -118,14 +118,16 @@ if(req.body.result.metadata.intentName=='serviceNowGetIncidentStatus'){
 	{
 		if(req.body.result.parameters.incidentNumber)
 	{
-      var incidentNumber=req.body.result.parameters.incidentNumber.substring(0,3);
+      var incidentNumber=req.body.result.parameters.incidentNumber;
+      incidentNumber=incidentNumber.substring(0,3);
       if(incidentNumber.toLowerCase() != "inc" ){
       return res.json({
       speech:"Please enter a valid incident number",
         displayText:"Please enter a valid incident number"
       })
       }else{
-        incidentNumber=req.body.result.parameters.incidentNumber.substring(3,req.body.result.parameters.incidentNumber.length);
+         incidentNumber=req.body.result.parameters.incidentNumber;
+        incidentNumber=incidentNumber.substring(3,req.body.result.parameters.incidentNumber.length);
       if(isNan(incidentNumber) == true){
           return res.json({
       speech:"Please enter a valid incident number",
