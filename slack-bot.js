@@ -109,6 +109,7 @@ exports.slackWebHookResponse = function(req,res){
         if(req.body.result.metadata.intentName=='serviceNowGetIncidentStatus'){
         try
         {
+            console.log("incident status"+req.body.result.parameters.incidentNumber);
             if(req.body.result.parameters.incidentNumber)
         {
           var incidentNumber=req.body.result.parameters.incidentNumber;
@@ -312,3 +313,9 @@ exports.slackWebHookResponse = function(req,res){
         }
         }
 };
+var getProperDateFormat=function(dateValue){
+    dateValue=dateValue.substring(0,10);
+    dateValue=dateValue.split("-");
+    return dateValue[2]+"/"+dateValue[1]+"/"+dateValue[0];
+    
+    };

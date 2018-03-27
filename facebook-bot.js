@@ -312,3 +312,9 @@ exports.fbWebHookResponse = function(req,res){
         }
         }
 };
+var getProperDateFormat=function(dateValue){
+    dateValue=dateValue.substring(0,10);
+    dateValue=dateValue.split("-");
+    return dateValue[2]+"/"+dateValue[1]+"/"+dateValue[0];
+    
+    };
