@@ -14,6 +14,7 @@ app.use(bodyParser.json());
 
 app.post('/',function(req,res){
    /* Creating a service request */
+   console.log(req.body.originalRequest.source);
  if(req.body.originalRequest.source == 'facebook'){
   fbBot.fbWebHookResponse(req,res);
 }else{
