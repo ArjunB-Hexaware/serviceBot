@@ -6,7 +6,7 @@ var options_auth = { user: "33238", password: "abc123" };
 var client = new Client(options_auth);
 var serverPort=process.env.PORT || 3000;
 var fbBot= require('./facebook-bot.js');
-var fbBot= require('./slack-bot.js');
+
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
