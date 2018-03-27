@@ -18,7 +18,7 @@ app.post('/',function(req,res){
  if(req.body.originalRequest.source == 'facebook'){
   fbBot.fbWebHookResponse(req,res);
 }else{
-  if(req.body.originalRequest.source == 'slack'){
+  if(req.body.originalRequest.source == 'slack_testbot'){
     slBot.slackWebHookResponse(req,res);
   }
 }
