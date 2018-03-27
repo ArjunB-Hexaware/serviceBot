@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 
 app.post('/',function(req,res){
     /* Creating a service request */
-    console.log(JSON.stringify(req.body.result));
+    console.log(JSON.stringify(req.body));
     if(req.body.result.metadata.intentName=='ServiceNowStoreData'){ 
 
     try
