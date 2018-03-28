@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 app.post('/',function(req,res){
    /* Creating a service request */
    console.log(req.body.originalRequest.source);
- if(req.body.originalRequest.source == 'facebook'){
+ if(req.body.originalRequest.source == 'facebook' || req.body.originalRequest.source == 'google'){
   fbBot.fbWebHookResponse(req,res);
 }else{
   if(req.body.originalRequest.source == 'slack_testbot'){
@@ -24,12 +24,7 @@ app.post('/',function(req,res){
 }
 });
 
-var getProperDateFormat=function(dateValue){
-dateValue=dateValue.substring(0,10);
-dateValue=dateValue.split("-");
-return dateValue[2]+"/"+dateValue[1]+"/"+dateValue[0];
 
-};
 app.listen(serverPort, function(){
     console.log('AI agent running on: ' + serverPort);
 });
