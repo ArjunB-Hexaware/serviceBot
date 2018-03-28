@@ -235,8 +235,8 @@ exports.fbWebHookResponse = function(req,res){
                         "messages": [
                             {"type":0,
                         "platform":"facebook",
-                        "speech":"State the type of incident",
-                        "displayText": "State the type of incident"},
+                        "speech":"Please select the type of incident",
+                        "displayText": "Please select the type of incident"},
                             {
                               "buttons": [
                                 {
