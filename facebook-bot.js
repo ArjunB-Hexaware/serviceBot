@@ -233,6 +233,10 @@ exports.fbWebHookResponse = function(req,res){
                 if(req.body.result.parameters.empid.length>3 && req.body.result.parameters.empid.length<7){
                     res.json({
                         "messages": [
+                            {"type":0,
+                        "platform":"facebook",
+                        "speech":"State the type of incident",
+                        "displayText": "State the type of incident"},
                             {
                               "buttons": [
                                 {
