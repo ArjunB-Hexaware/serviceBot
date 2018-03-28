@@ -122,7 +122,7 @@ exports.slackWebHookResponse = function(req,res){
           }else{
              incidentNumber=req.body.result.parameters.incidentNumber;
             incidentNumber=incidentNumber.substring(3,req.body.result.parameters.incidentNumber.length);
-          if(Number.isNaN(incidentNumber) == true){
+          if(isNaN(incidentNumber)){
               return res.json({
           speech:"Please enter a valid incident number",
             displayText:"Please enter a valid incident number"
@@ -143,11 +143,27 @@ exports.slackWebHookResponse = function(req,res){
         {
         if(data.result[0])
         {
-        
+        /*
         return res.json({
         speech:" Incident Number : "+data.result[0].number +"- Incident description : "+data.result[0].short_description+" - Created on : "+getProperDateFormat(data.result[0].opened_at),
         displayText:"Incident Number : "+data.result[0].number +"- Incident description : "+data.result[0].short_description+" - Created on : "+getProperDateFormat(data.result[0].opened_at)
-        })
+        })*/
+        return res.json({
+            "messages": [   {"type":0,
+            "platform":"slack",
+            speech:" Incident Number : "+data.result[0].number +"- Incident description : "+data.result[0].short_description+" - Created on : "+getProperDateFormat(data.result[0].opened_at)+" - Status:Open",
+            displayText:"Incident Number : "+data.result[0].number +"- Incident description : "+data.result[0].short_description+" - Created on : "+getProperDateFormat(data.result[0].opened_at)+" - Status:Open",
+        },{
+                  "platform": "slack",
+                  "replies": [
+                    "Create incident",
+                    "Incident status"
+                  ],
+                  "title": "Please choose one of the following to continue",
+                  "type": 2
+                }
+              ]
+              })
         }
         else
         {
@@ -233,7 +249,10 @@ exports.slackWebHookResponse = function(req,res){
                 console.log(req.body.result.parameters.empid);
                 if(req.body.result.parameters.empid.length>3 && req.body.result.parameters.empid.length<7){
                     res.json({
-                        "messages": [
+                        "messages": [{"type":0,
+                        "platform":"slack",
+                        "speech":"Please select the type of incident",
+                        "displayText": "Please select the type of incident"},
                             {
                               "buttons": [
                                 {
