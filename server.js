@@ -24,7 +24,7 @@ app.post('/',function(req,res){
   }else{
     if(req.body.originalRequest.source == 'google'){
       console.log("Google assistant");
-      gAsstBot.gAsstWebHookResponse(req,res);
+      gAsstBot.googleAsstWebHookResponse(req,res);
     }
   }
 }
