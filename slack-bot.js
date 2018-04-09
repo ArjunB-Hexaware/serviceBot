@@ -243,8 +243,9 @@ exports.slackWebHookResponse = function(req,res){
               ]
               });*/
            return res.json({
-                "text": "Would you like to play a game?",
-                "response_type": "in_channel",
+            "platform":"slack",
+            "speech":"Please priority",
+            "displayText": "priority",
                 "attachments": [
                     {
                         "text": "Choose a game to play",
